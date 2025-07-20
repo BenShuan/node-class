@@ -3,10 +3,15 @@ import express from "express";
 const app = express();
 const port = 3000;
 
+
+
 app.get("/", (req, res) => {
   res.send("GET request!");
 });
-app.post("/", (req, res) => {
+app.post("/users", (req, res) => {
+
+  const params = req.query
+  console.log('params.class', params.class)
 
   res.send("POST route!");
 });

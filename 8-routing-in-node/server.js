@@ -1,4 +1,5 @@
 import http from 'http';
+import { runInNewContext } from 'vm';
 
 const server = http.createServer((req, res) => {
 
@@ -35,8 +36,8 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('Hello, World!\n');
+  res.writeHead(404, { 'Content-Type': 'text/plain' });
+  res.end(`Error 404: Not Found at ${req.url} with method ${req.method}`);
 });
 const PORT = process.env.PORT || 3000;
 

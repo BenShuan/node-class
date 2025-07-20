@@ -1,13 +1,13 @@
-import http from 'http';
+import http from "http";
 
 const server = http.createServer((req, res) => {
+  res.statusCode=200;
+  res.setHeader( "Content-Type", "application/json" );
 
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('Hello, World!\n');
+  res.end(JSON.stringify({message:"Hello, World!"}));
 });
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
-server.listen(PORT,(req,err)=>{
-  
-console.log('Server is runing on port '+PORT)
-})
+server.listen(PORT, (req, err) => {
+  console.log("Server is runing on port " + PORT);
+});
